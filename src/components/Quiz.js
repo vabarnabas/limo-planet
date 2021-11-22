@@ -83,10 +83,14 @@ const Quiz = (props) => {
 
     const submitAnswer = (value) => {
         setIsQuestion(false)
-        setShowSuccess(false)
-        if (questions[props.currentQuestion].correct === value) {
-            setShowSuccess(true)
-            setCorrectAnswers(correctAnswers+1)
+        if(props.currentQuestion+1 < questions.length) {
+            setShowSuccess(false)
+            if (questions[props.currentQuestion].correct === value) {
+                setShowSuccess(true)
+                setCorrectAnswers(correctAnswers+1)
+            }
+        } else {
+            props.setQuizState('End')
         }
     }
 
@@ -94,8 +98,6 @@ const Quiz = (props) => {
         if (props.currentQuestion+1 < questions.length) {
             props.setCurrentQuestion(props.currentQuestion+1)
             setIsQuestion(true)
-        } else {
-            props.setQuizState('End')
         }
     }
 
@@ -115,13 +117,13 @@ const Quiz = (props) => {
                 <div className="flex flex-col items-center justify-center text-limoDark">
                     <p className="mt-2 text-3xl font-bold mb-6">Helyes válasz!</p>
                     <HiCheckCircle className="mb-4 text-9xl" />
-                    <p className="text-sm">{'Eddig ' + correctAnswers + ' kérdésre válaszoltál helyesen. Így tovább!'}</p>
+                    <p className="text-sm">{'Eddig ' + correctAnswers + ' kérdésre válaszoltál helyesen. ' + ((correctAnswers/props.currentQuestion) > 0.5 ? 'Így tovább!' : 'Ne csüggedj!')}</p>
                     <button onClick={nextQuestion} className="mt-2 w-full text-xl bg-limoDark text-white font-semibold py-2 px-2 rounded-md mb-4">Tovább!</button>
                 </div> :
                 <div className="flex flex-col items-center justify-center text-limoDark">
                     <p className="mt-2 text-3xl font-bold mb-6">Helytelen válasz!</p>
                     <HiXCircle className="mb-4 text-9xl" />
-                    <p className="text-sm">{'Eddig ' + correctAnswers + ' kérdésre válaszoltál helyesen. Ne csüggedj!'}</p>
+                    <p className="text-sm">{'Eddig ' + correctAnswers + ' kérdésre válaszoltál helyesen. ' + ((correctAnswers/props.currentQuestion) > 0.5 ? 'Ne add fel!' : 'Ne csüggedj!')}</p>
                     <button onClick={nextQuestion} className="mt-2 w-full text-xl bg-limoDark text-white font-semibold py-2 px-2 rounded-md mb-4">Tovább!</button>
                 </div> 
                 )
