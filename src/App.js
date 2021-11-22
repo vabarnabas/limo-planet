@@ -10,7 +10,7 @@ function App() {
   return (
     <div className="w-screen h-screen flex justify-center items-center bg-limoDark select-none">
       <Quiz currentQuestion={currentQuestion} setCurrentQuestion={(currentQuestion) => setCurrentQuestion(currentQuestion)} setQuizState={(quizState) => setQuizState(quizState)} quizState={quizState} />
-      <p className="fixed left-3 bottom-3 px-2 py-1 text-sm bg-white text-limoDark font-semibold rounded-md">Limo Planet Quiz</p>
+      <p className="fixed left-3 bottom-3 px-2 py-1 text-xs bg-white text-limoDark rounded-md">Limo Planet Quiz</p>
     </div>
   );
 }

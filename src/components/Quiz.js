@@ -100,7 +100,7 @@ const Quiz = (props) => {
     }
 
     return (
-        <div className="bg-white px-12 py-4 rounded-lg shadow-md flex items-center justify-center text-center max-w-lg z-10">
+        <div className="bg-white px-12 py-4 mx-8 rounded-lg shadow-md flex items-center justify-center text-center max-w-lg z-10">
             {(props.quizState === 'Quiz') ?
             (isQuestion ?
                 <div className="flex flex-col items-center justify-center text-limoDark">
