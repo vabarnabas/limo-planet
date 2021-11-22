@@ -129,7 +129,7 @@ const Quiz = (props) => {
                 )
             ) : ((props.quizState === 'Start') ?
                 <div className="flex flex-col items-center justify-center text-limoDark">
-                    <p className="mt-2 text-3xl font-bold mb-6">MOL Limo x Planet 2021 Quiz!</p>
+                    <p className="mt-2 text-3xl font-bold mb-6">MOL Limo x Planet 2021 Quiz</p>
                     <IoEarth className="mb-4 text-9xl" />
                     <p className="text-sm">Válaszolj a kérdésekre, hogy izgalmas merchandise ajándékokat kaphass!</p>
                     <button onClick={() => props.setQuizState('Quiz')} className="mt-2 w-full text-xl bg-limoDark text-white font-semibold py-2 px-2 rounded-md mb-4">Kezdés!</button>
