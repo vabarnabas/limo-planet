@@ -90,6 +90,9 @@ const Quiz = (props) => {
                 setCorrectAnswers(correctAnswers+1)
             }
         } else {
+            if (questions[props.currentQuestion].correct === value) {
+                setCorrectAnswers(correctAnswers+1)
+            }
             props.setQuizState('End')
         }
     }
